@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from groq import Groq
 
-from utils.config import settings
+from backend.utils.config import settings
 
 
 class GroqService:
