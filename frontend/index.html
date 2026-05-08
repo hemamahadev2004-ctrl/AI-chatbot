@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Database Chatbot</title>
+    <meta
+      name="description"
+      content="A ChatGPT-inspired AI database assistant powered by FastAPI, MySQL, FAISS, SentenceTransformers, and Groq."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Instrument Sans", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 40px rgba(0, 0, 0, 0.24)",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body class="dark">
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar-panel">
+        <div class="sidebar-top">
+          <button id="newChatBtn" class="action-button primary-action">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>New chat</span>
+          </button>
+          <button id="mobileCloseBtn" class="mobile-icon-button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="section-label">Recent chats</div>
+          <div id="chatHistoryList" class="chat-history-list"></div>
+        </div>
+
+        <div class="sidebar-footer">
+          <button id="exportChatBtn" class="action-button secondary-action">
+            <i class="fa-solid fa-file-export"></i>
+            <span>Export chat</span>
+          </button>
+          <button id="clearChatBtn" class="action-button secondary-action">
+            <i class="fa-solid fa-broom"></i>
+            <span>Clear chat</span>
+          </button>
+        </div>
+      </aside>
+
+      <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button id="mobileMenuBtn" class="mobile-icon-button">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <div>
+              <p class="topbar-label">Database assistant</p>
+              <h1 id="chatTitle" class="topbar-title">New chat</h1>
+            </div>
+          </div>
+          <div class="topbar-status">
+            <span class="status-dot"></span>
+            <span>Context grounded in MySQL data</span>
+          </div>
+        </header>
+
+        <section id="chatContainer" class="chat-container">
+          <div id="emptyState" class="empty-state">
+            <div class="empty-state-logo">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h2>Ask questions about your database</h2>
+            <p>
+              This assistant retrieves relevant database context with FAISS, runs a safe read-only query, and
+              summarizes the results using Groq.
+            </p>
+            <div class="empty-state-suggestions">
+              <button class="suggestion-pill" data-suggestion="Show total sales this month">Show total sales this month</button>
+              <button class="suggestion-pill" data-suggestion="Which products performed best">Which products performed best</button>
+              <button class="suggestion-pill" data-suggestion="Summarize employee attendance">Summarize employee attendance</button>
+              <button class="suggestion-pill" data-suggestion="Compare revenue trends">Compare revenue trends</button>
+            </div>
+          </div>
+          <div id="messages" class="messages"></div>
+        </section>
+
+        <footer class="composer-shell">
+          <div id="typingIndicator" class="typing-indicator hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p>Assistant is thinking</p>
+          </div>
+
+          <form id="chatForm" class="composer">
+            <div class="composer-inner">
+              <textarea
+                id="messageInput"
+                rows="1"
+                maxlength="2000"
+                placeholder="Message your database assistant..."
+              ></textarea>
+              <button id="sendBtn" type="submit" class="send-button" aria-label="Send message">
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+            </div>
+            <div class="composer-meta">
+              <span>Answers are generated only from database context and SQL results.</span>
+              <span id="charCount">0 / 2000</span>
+            </div>
+          </form>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/js/app.js" defer></script>
+  </body>
+</html>
+
