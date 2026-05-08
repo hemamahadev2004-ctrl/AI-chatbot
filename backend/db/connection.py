@@ -5,7 +5,7 @@ from contextlib import contextmanager
 import mysql.connector
 from mysql.connector.pooling import MySQLConnectionPool
 
-from utils.config import settings
+from backend.utils.config import settings
 
 
 class DatabasePool:
