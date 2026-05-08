@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from typing import Any
 
-from utils.models import ContextDocument, TableInfo
+from backend.utils.models import ContextDocument, TableInfo
 
 
 def now_iso() -> str:
