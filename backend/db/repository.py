@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from db.connection import db_pool
+from backend.db.connection import db_pool
 from backend.utils.models import ColumnInfo, ContextDocument, TableInfo
 
 
