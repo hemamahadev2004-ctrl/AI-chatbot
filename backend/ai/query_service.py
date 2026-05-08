@@ -5,12 +5,12 @@ from collections import defaultdict
 from datetime import datetime
 from typing import Any
 
-from ai.embeddings import EmbeddingService
-from ai.groq_client import GroqService
-from ai.vector_store import FaissVectorStore
+from backend.ai.embeddings import EmbeddingService
+from backend.ai.groq_client import GroqService
+from backend.ai.vector_store import FaissVectorStore
 from db.repository import MySQLRepository
-from utils.config import settings
-from utils.formatter import (
+from backend.utils.config import settings
+from backend.utils.formatter import (
     build_fallback_markdown,
     build_session_title,
     format_context_matches,
