@@ -18,9 +18,9 @@ from backend.utils.formatter import (
     now_iso,
     to_json_safe_rows,
 )
-from utils.history_store import HistoryStore
-from utils.models import ChatRequest, ChatResponse, ChatSessionSummary, ContextDocument, TableInfo
-from utils.safety import extract_json_object, validate_message, validate_sql_plan
+from backend.utils.history_store import HistoryStore
+from backend.utils.models import ChatRequest, ChatResponse, ChatSessionSummary, ContextDocument, TableInfo
+from backend.utils.safety import extract_json_object, validate_message, validate_sql_plan
 
 
 class ChatService:
