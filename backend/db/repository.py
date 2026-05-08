@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 from db.connection import db_pool
-from utils.models import ColumnInfo, ContextDocument, TableInfo
+from backend.utils.models import ColumnInfo, ContextDocument, TableInfo
 
 
 def quote_identifier(identifier: str) -> str:
