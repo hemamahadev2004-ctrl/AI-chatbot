@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Request
 
-from utils.models import ChatRequest, ChatResponse, ChatSessionSummary, NewChatRequest
+from backend.utils.models import ChatRequest, ChatResponse, ChatSessionSummary, NewChatRequest
 
 router = APIRouter(tags=["chat"])
 
