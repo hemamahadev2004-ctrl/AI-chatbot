@@ -8,9 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from .ai.query_service import ChatService
-from .routes.chat import router as chat_router
-from .utils.config import settings
+from backend.ai.query_service import ChatService
+from backend.routes.chat import router as chat_router
+from backend.utils.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
