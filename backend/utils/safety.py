@@ -4,7 +4,7 @@ import json
 import re
 from typing import Any
 
-from utils.config import settings
+from backend.utils.config import settings
 
 FORBIDDEN_SQL_PATTERN = re.compile(
     r"\b(insert|update|delete|drop|alter|truncate|create|rename|replace|grant|revoke|call|execute|attach|detach|merge|set)\b",
