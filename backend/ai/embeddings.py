@@ -5,7 +5,7 @@ from typing import Iterable
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-from utils.config import settings
+from backend.utils.config import settings
 
 
 class EmbeddingService:
