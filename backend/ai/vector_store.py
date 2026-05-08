@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 import faiss
 import numpy as np
 
-from utils.models import ContextDocument
+from backend.utils.models import ContextDocument
 
 
 class FaissVectorStore:
