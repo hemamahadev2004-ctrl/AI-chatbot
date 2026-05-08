@@ -8,7 +8,7 @@ from typing import Any
 from backend.ai.embeddings import EmbeddingService
 from backend.ai.groq_client import GroqService
 from backend.ai.vector_store import FaissVectorStore
-from db.repository import MySQLRepository
+from backend.db.repository import MySQLRepository
 from backend.utils.config import settings
 from backend.utils.formatter import (
     build_fallback_markdown,
